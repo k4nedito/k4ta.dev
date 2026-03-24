@@ -1,5 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
+
+	function toggleTheme() {
+		const isLight = document.documentElement.classList.toggle('light');
+		localStorage.setItem('theme', isLight ? 'light' : 'dark');
+	}
 
 	const phrases = [
 		'building full stack apps',
@@ -51,56 +57,80 @@
 		const cursorInterval = setInterval(() => { cursorVisible = !cursorVisible; }, 530);
 		return () => clearInterval(cursorInterval);
 	});
+
+	function isActive(href: string) {
+		if (href === '/') return page.url.pathname === '/';
+		return page.url.pathname.startsWith(href);
+	}
+
+	const links = [
+		{ href: '/', label: 'home' },
+		{ href: '/whoami', label: 'whoami' },
+		{ href: '/blog', label: 'blog' },
+		{ href: '/contact', label: 'contact' },
+	];
 </script>
 
 <section class="min-h-screen flex items-center justify-center px-6 py-16">
 	<div class="max-w-5xl w-full flex flex-col-reverse min-[1067px]:flex-row items-center gap-12 min-[1067px]:gap-16">
-		<!-- Left: Content -->
 		<div class="flex-1 space-y-8">
 			<div class="space-y-1">
-				<p class="text-text-muted font-mono text-sm">Hi,</p>
-				<h1 class="font-heading text-4xl font-bold text-text">k4tastropa here.</h1>
-				<p class="text-text-muted text-lg font-mono">
-					{displayed}<span class="inline-block w-[2px] h-[1.1em] bg-accent align-middle ml-[2px] translate-y-[1px]" class:opacity-0={!cursorVisible}></span>
+				<p class="font-mono text-sm" style="color: var(--text-muted)">Hi,</p>
+				<h1 class="font-heading text-4xl font-bold" style="color: var(--text)">k4tastropa here.</h1>
+				<p class="text-lg font-mono" style="color: var(--text-muted)">
+					{displayed}<span
+						class="inline-block w-[2px] h-[1.1em] align-middle ml-[2px] translate-y-[1px]"
+						style="background-color: var(--accent)"
+						class:opacity-0={!cursorVisible}
+					></span>
 				</p>
 			</div>
 
-			<nav class="flex gap-4 font-mono text-sm">
-				<a href="/home" class="text-accent hover:underline">[home]</a>
-				<a href="/whoami" class="text-accent hover:underline">[whoami]</a>
-				<a href="/blog" class="text-accent hover:underline">[blog]</a>
-				<a href="/contact" class="text-accent hover:underline">[contact]</a>
+			<nav class="flex gap-2 font-mono text-sm">
+				{#each links as link}
+					<a
+						href={link.href}
+						class="transition-colors"
+						style="color: var({isActive(link.href) ? '--text' : '--accent'})"
+					>[{link.label}]</a>
+				{/each}
+				<button
+					onclick={toggleTheme}
+					class="transition-colors cursor-pointer"
+					style="color: var(--accent)"
+					aria-label="Toggle color theme"
+				>[theme]</button>
 			</nav>
 
 			<div class="space-y-4">
-				<p class="text-text-muted font-mono text-sm">Latest:</p>
+				<p class="font-mono text-sm" style="color: var(--text-muted)">Latest:</p>
 
 				<a href="/blog/05" class="block group">
-					<h3 class="font-heading text-lg font-semibold text-text group-hover:text-accent transition-colors">You will never be human enough</h3>
-					<p class="text-text-muted text-sm">Yap sesh about LLM's and AGI</p>
-					<p class="text-text-muted font-mono text-xs">2026-02-02</p>
+					<h3 class="font-heading text-lg font-semibold transition-colors" style="color: var(--text)">You will never be human enough</h3>
+					<p class="text-sm" style="color: var(--text-muted)">Yap sesh about LLM's and AGI</p>
+					<p class="font-mono text-xs" style="color: var(--accent)">2026-02-02</p>
 				</a>
 
 				<a href="/blog/04" class="block group">
-					<h3 class="font-heading text-lg font-semibold text-text group-hover:text-accent transition-colors">New year</h3>
-					<p class="text-text-muted text-sm">I am in fact still active</p>
-					<p class="text-text-muted font-mono text-xs">2026-01-02</p>
+					<h3 class="font-heading text-lg font-semibold transition-colors" style="color: var(--text)">New year</h3>
+					<p class="text-sm" style="color: var(--text-muted)">I am in fact still active</p>
+					<p class="font-mono text-xs" style="color: var(--accent)">2026-01-02</p>
 				</a>
 
 				<a href="/blog/03" class="block group">
-					<h3 class="font-heading text-lg font-semibold text-text group-hover:text-accent transition-colors">How does React work</h3>
-					<p class="text-text-muted text-sm">I finally understood it, gotta document</p>
-					<p class="text-text-muted font-mono text-xs">2025-10-31</p>
+					<h3 class="font-heading text-lg font-semibold transition-colors" style="color: var(--text)">How does React work</h3>
+					<p class="text-sm" style="color: var(--text-muted)">I finally understood it, gotta document</p>
+					<p class="font-mono text-xs" style="color: var(--accent)">2025-10-31</p>
 				</a>
 			</div>
 		</div>
 
-		<!-- Right: Image -->
 		<div class="flex-shrink-0">
 			<img
 				src="/preview.png"
 				alt="k4tastropa"
-				class="w-70 min-[1067px]:w-[40rem] border-3 border-border"
+				class="w-70 min-[1067px]:w-[40rem]"
+				style="border: 3px solid var(--border)"
 			/>
 		</div>
 	</div>
