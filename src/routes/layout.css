@@ -4,4 +4,74 @@
 	--font-sans: 'IBM Plex Sans', sans-serif;
 	--font-heading: 'Space Grotesk', sans-serif;
 	--font-mono: 'IBM Plex Mono', monospace;
+
+	/* Gruvbox Dark */
+	--color-gruvbox-bg: #282828;
+	--color-gruvbox-bg-h: #1d2021;
+	--color-gruvbox-bg-s: #32302f;
+	--color-gruvbox-bg1: #3c3836;
+	--color-gruvbox-bg2: #504945;
+	--color-gruvbox-bg3: #665c54;
+	--color-gruvbox-bg4: #7c6f64;
+
+	--color-gruvbox-fg: #ebdbb2;
+	--color-gruvbox-fg0: #fbf1c7;
+	--color-gruvbox-fg1: #ebdbb2;
+	--color-gruvbox-fg2: #d5c4a1;
+	--color-gruvbox-fg3: #bdae93;
+	--color-gruvbox-fg4: #a89984;
+
+	--color-gruvbox-gray: #928374;
+
+	/* Dark accent colors */
+	--color-gruvbox-red: #cc241d;
+	--color-gruvbox-green: #98971a;
+	--color-gruvbox-yellow: #d79921;
+	--color-gruvbox-blue: #458588;
+	--color-gruvbox-purple: #b16286;
+	--color-gruvbox-aqua: #689d6a;
+	--color-gruvbox-orange: #d65d0e;
+
+	/* Light accent colors */
+	--color-gruvbox-red-light: #fb4934;
+	--color-gruvbox-green-light: #b8bb26;
+	--color-gruvbox-yellow-light: #fabd2f;
+	--color-gruvbox-blue-light: #83a598;
+	--color-gruvbox-purple-light: #d3869b;
+	--color-gruvbox-aqua-light: #8ec07c;
+	--color-gruvbox-orange-light: #fe8019;
+
+	/* Gruvbox Light */
+	--color-gruvbox-light-bg: #fbf1c7;
+	--color-gruvbox-light-bg-h: #f9f5d7;
+	--color-gruvbox-light-bg-s: #f2e5bc;
+	--color-gruvbox-light-bg1: #ebdbb2;
+	--color-gruvbox-light-bg2: #d5c4a1;
+	--color-gruvbox-light-bg3: #bdae93;
+	--color-gruvbox-light-bg4: #a89984;
+
+	--color-gruvbox-light-fg: #3c3836;
+	--color-gruvbox-light-fg0: #282828;
+	--color-gruvbox-light-fg1: #3c3836;
+	--color-gruvbox-light-fg2: #504945;
+	--color-gruvbox-light-fg3: #665c54;
+	--color-gruvbox-light-fg4: #7c6f64;
+
+	/* Light mode accent colors */
+	--color-gruvbox-light-red: #cc241d;
+	--color-gruvbox-light-green: #98971a;
+	--color-gruvbox-light-yellow: #d79921;
+	--color-gruvbox-light-blue: #458588;
+	--color-gruvbox-light-purple: #b16286;
+	--color-gruvbox-light-aqua: #689d6a;
+	--color-gruvbox-light-orange: #d65d0e;
+
+	/* Light mode dimmed accents */
+	--color-gruvbox-light-red-dim: #9d0006;
+	--color-gruvbox-light-green-dim: #79740e;
+	--color-gruvbox-light-yellow-dim: #b57614;
+	--color-gruvbox-light-blue-dim: #076678;
+	--color-gruvbox-light-purple-dim: #8f3f71;
+	--color-gruvbox-light-aqua-dim: #427b58;
+	--color-gruvbox-light-orange-dim: #af3a03;
 }
