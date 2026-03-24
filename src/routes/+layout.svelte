@@ -35,7 +35,26 @@
 	const isHome = $derived(page.url.pathname === '/');
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<title>k4tastropa</title>
+	<meta name="description" content="my stuff." />
+	<link rel="icon" href={favicon} />
+	<link rel="canonical" href="https://k4ta.dev{page.url.pathname}" />
+	<meta name="author" content="k4tastropa" />
+	<meta name="theme-color" content="#282828" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="k4tastropa" />
+	<meta property="og:description" content="my stuff." />
+	<meta property="og:image" content="https://k4ta.dev/preview.png" />
+	<meta property="og:url" content="https://k4ta.dev{page.url.pathname}" />
+	<meta property="og:site_name" content="k4tastropa" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="k4tastropa" />
+	<meta name="twitter:description" content="my stuff." />
+	<meta name="twitter:image" content="https://k4ta.dev/preview.png" />
+</svelte:head>
 
 {#if isHome}
 	{@render children()}
