@@ -1,5 +1,31 @@
 @import 'tailwindcss';
 
+:root {
+	--bg: var(--color-gruvbox-bg);
+	--surface: var(--color-gruvbox-bg1);
+	--text: var(--color-gruvbox-fg);
+	--text-muted: var(--color-gruvbox-fg4);
+	--accent: var(--color-gruvbox-aqua-light);
+	--border: var(--color-gruvbox-bg3);
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg: var(--color-gruvbox-light-bg);
+		--surface: var(--color-gruvbox-light-bg1);
+		--text: var(--color-gruvbox-light-fg);
+		--text-muted: var(--color-gruvbox-light-fg4);
+		--accent: var(--color-gruvbox-light-aqua-dim);
+		--border: var(--color-gruvbox-light-bg3);
+	}
+}
+
 @theme {
 	--font-sans: 'IBM Plex Sans', sans-serif;
 	--font-heading: 'Space Grotesk', sans-serif;
@@ -74,4 +100,11 @@
 	--color-gruvbox-light-purple-dim: #8f3f71;
 	--color-gruvbox-light-aqua-dim: #427b58;
 	--color-gruvbox-light-orange-dim: #af3a03;
+
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-text: var(--text);
+	--color-text-muted: var(--text-muted);
+	--color-accent: var(--accent);
+	--color-border: var(--border);
 }
